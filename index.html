@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CreativeCompass — Find Your Creative Career Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700&family=Fraunces:ital,wght@0,300;0,600;1,300;1,500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============================
+     MOBILE NAV
+============================ -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="#problem" onclick="closeMobileNav()">Why This</a>
+  <a href="#solution" onclick="closeMobileNav()">What We Do</a>
+  <a href="#how" onclick="closeMobileNav()">How It Works</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQs</a>
+  <a href="#final-cta" class="btn btn-primary" onclick="closeMobileNav()">Free Consultation</a>
+</div>
+
+<!-- ============================
+     NAVBAR
+============================ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-logo">
+    <span>Creative</span><span style="color:var(--saffron)">Compass</span><span class="nav-logo-dot"></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#problem">Why This</a></li>
+    <li><a href="#solution">What We Do</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#trust">Trust</a></li>
+    <li><a href="#faq">FAQs</a></li>
+  </ul>
+  <a href="#final-cta" class="btn btn-primary nav-cta">Free Consultation →</a>
+  <div class="nav-mobile-toggle" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO SECTION
+============================ -->
+<section class="hero" id="hero">
+  <div class="blob hero-blob-1"></div>
+  <div class="blob hero-blob-2"></div>
+  <div class="container">
+
+    <div style="position:relative;z-index:1;">
+      <div class="hero-eyebrow fade-up">
+        <span class="hero-eyebrow-dot"></span>
+        Career Guidance for Class 8–12 Students
+      </div>
+
+      <h1 class="hero-title fade-up fade-up-delay-1">
+        Your Passion Can Be<br>
+        <span class="highlight">Your Career.</span><br>
+        <span class="italic">We'll Show You How.</span>
+      </h1>
+
+      <p class="lead hero-desc fade-up fade-up-delay-2">
+        Confused about which creative career to choose? Worried parents? We help students and families understand, plan, and confidently step into the world of design, content, marketing, and branding — with real structure and real earning potential.
+      </p>
+
+      <div class="hero-cta-row fade-up fade-up-delay-3">
+        <a href="#final-cta" class="btn btn-primary btn-lg">
+          Apply for Free Consultation
+          <span class="arrow">→</span>
+        </a>
+        <a href="#how" class="btn btn-outline btn-lg">See How It Works</a>
+      </div>
+
+      <div class="hero-stats fade-up">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Students Guided</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">40+</div>
+          <div class="hero-stat-label">Creative Career Paths Mapped</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">₹8–35L</div>
+          <div class="hero-stat-label">Salary Range for Graduates</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Free First Session</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     SCROLLING TICKER
+============================ -->
+<div class="ticker-section">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item"><span class="ticker-dot"></span>UI/UX Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Content Creation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Brand Strategy</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Digital Marketing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Video Production</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Graphic Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Motion Graphics</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Copywriting</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Social Media Management</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Product Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Photography</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Illustration</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>UI/UX Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Content Creation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Brand Strategy</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Digital Marketing</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Video Production</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Graphic Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Motion Graphics</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Copywriting</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Social Media Management</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Product Design</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Photography</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Illustration</span>
+  </div>
+</div>
+
+<!-- ============================
+     PROBLEM SECTION
+============================ -->
+<section class="problem section" id="problem">
+  <div class="container">
+
+    <div style="max-width:640px">
+      <div class="badge badge-saffron fade-up">The Reality Check</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">Sound Familiar?</h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">
+        Whether you're a student dreaming about a creative life — or a parent worried about what "creative career" actually means — we understand exactly where you are right now.
+      </p>
+    </div>
+
+    <div class="problem-grid mt-12">
+
+      <!-- Student Card -->
+      <div class="problem-card problem-card-student fade-up">
+        <div class="problem-card-label student-label">🎨 For Students</div>
+        <h3>"I love designing / making videos / writing — but I don't know what to do with it."</h3>
+        <p>You're passionate. You're creative. But everyone around you is picking Engineering or Medicine, and you feel lost.</p>
+        <ul class="problem-list">
+          <li><span class="icon">😓</span> "My parents think drawing or making reels isn't a 'real' career"</li>
+          <li><span class="icon">😕</span> "I don't even know what subjects to choose in Class 11"</li>
+          <li><span class="icon">😟</span> "There are 100 YouTube videos but I still don't know where to start"</li>
+          <li><span class="icon">😤</span> "I'm scared I'll end up doing something I hate for the rest of my life"</li>
+          <li><span class="icon">🫣</span> "I have ideas, but no one takes me seriously"</li>
+        </ul>
+      </div>
+
+      <!-- Parent Card -->
+      <div class="problem-card problem-card-parent fade-up fade-up-delay-1">
+        <div class="problem-card-label parent-label">👨‍👩‍👧 For Parents</div>
+        <h3>"Creative careers sound unstable. What about job security and a steady income?"</h3>
+        <p>You want the best for your child. You've worked hard for them. And now they want to pursue something that feels… uncertain.</p>
+        <ul class="problem-list">
+          <li><span class="icon">💰</span> "Will my child actually earn a decent salary doing this?"</li>
+          <li><span class="icon">📊</span> "Is there a proper career path, or just freelancing forever?"</li>
+          <li><span class="icon">🏢</span> "Which companies actually hire people for these roles?"</li>
+          <li><span class="icon">📚</span> "What degrees or courses should they study after Class 12?"</li>
+          <li><span class="icon">🔮</span> "Is this a phase, or is my child genuinely suited for this?"</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bridge message -->
+    <div class="problem-center fade-up">
+      <p class="serif">"The gap between your child's passion and your peace of mind is smaller than you think."</p>
+      <p style="margin-top:12px; color:var(--ink-light);">We bridge that gap — with real information, clear roadmaps, and honest conversations. For both of you.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     WHY CREATIVE CAREERS
+============================ -->
+<section class="why section" id="why">
+  <div class="container">
+
+    <div class="why-intro">
+      <div class="badge badge-teal fade-up">Why Creative Careers?</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">Creative is the New <span style="color:var(--teal)">Engineering.</span></h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">India's digital economy is booming. And it runs on design, content, and creativity. This is not just a "passion" — it's one of the fastest-growing job sectors in the world.</p>
+    </div>
+
+    <div class="grid-4 why-grid mt-12">
+      <div class="why-card c1 fade-up">
+        <div class="why-card-icon">🚀</div>
+        <h3>India's Fastest-Growing Industry</h3>
+        <p>The Indian digital marketing industry alone is worth ₹539 billion and growing at 32% per year.</p>
+        <span class="why-card-stat" style="background:var(--saffron-pale);color:var(--saffron);">32% annual growth</span>
+      </div>
+      <div class="why-card c2 fade-up fade-up-delay-1">
+        <div class="why-card-icon">💼</div>
+        <h3>Real Jobs at Real Companies</h3>
+        <p>Swiggy, Zomato, Flipkart, Myntra, and every startup in India hires designers, content writers, and brand managers.</p>
+        <span class="why-card-stat" style="background:var(--teal-light);color:var(--teal);">Millions of open roles</span>
+      </div>
+      <div class="why-card c3 fade-up fade-up-delay-2">
+        <div class="why-card-icon">🌍</div>
+        <h3>Work from Anywhere</h3>
+        <p>Creative professionals work with global clients from Bengaluru, Chennai, or a café in Goa — on their own terms.</p>
+        <span class="why-card-stat" style="background:var(--violet-light);color:var(--violet);">Global demand</span>
+      </div>
+      <div class="why-card c4 fade-up fade-up-delay-3">
+        <div class="why-card-icon">📈</div>
+        <h3>Salaries Are Competitive</h3>
+        <p>Senior UI/UX designers earn ₹20–40L. Brand managers at top companies earn ₹15–30L. This is real money.</p>
+        <span class="why-card-stat" style="background:var(--gold-light);color:#B8860B;">₹8L–40L+ range</span>
+      </div>
+    </div>
+
+    <!-- Salary Breakdown Callout -->
+    <div class="why-big-callout fade-up">
+      <div>
+        <div class="badge" style="background:rgba(255,107,53,0.2);color:#FF8C5A;margin-bottom:16px;">Real Numbers, Not Dreams</div>
+        <h3>Creative careers pay well — and grow fast.</h3>
+        <p style="color:rgba(255,255,255,0.7);margin-top:10px;line-height:1.7;">Here's what professionals with 3–7 years of experience are actually earning at companies like Zomato, Razorpay, CRED, and global agencies.</p>
+        <a href="#final-cta" class="btn btn-ghost" style="margin-top:28px;">
+          See Full Career Paths
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="why-salary-grid">
+        <div class="salary-item">
+          <div class="salary-role">UI/UX Designer</div>
+          <div class="salary-num">₹12–28L</div>
+          <div class="salary-xp">3–5 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Content Strategist</div>
+          <div class="salary-num">₹8–18L</div>
+          <div class="salary-xp">2–4 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Brand Manager</div>
+          <div class="salary-num">₹15–30L</div>
+          <div class="salary-xp">4–6 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Digital Marketer</div>
+          <div class="salary-num">₹6–20L</div>
+          <div class="salary-xp">2–5 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Video Creator</div>
+          <div class="salary-num">₹5–25L</div>
+          <div class="salary-xp">2–5 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Motion Designer</div>
+          <div class="salary-num">₹8–22L</div>
+          <div class="salary-xp">3–5 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Copywriter</div>
+          <div class="salary-num">₹6–16L</div>
+          <div class="salary-xp">2–4 yrs exp</div>
+        </div>
+        <div class="salary-item">
+          <div class="salary-role">Product Designer</div>
+          <div class="salary-num">₹15–40L</div>
+          <div class="salary-xp">4–7 yrs exp</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     SOLUTION SECTION
+============================ -->
+<section class="solution section" id="solution">
+  <div class="container">
+
+    <div class="solution-header">
+      <div class="badge badge-violet fade-up">What We Do</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">
+        More Than Advice.<br>
+        <span style="color:var(--violet)">A Real Roadmap.</span>
+      </h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">
+        We don't just say "follow your passion." We give you a structured, step-by-step plan — so students feel confident and parents feel secure.
+      </p>
+    </div>
+
+    <div class="solution-cards">
+      <div class="solution-card fade-up">
+        <div class="solution-emoji">🔍</div>
+        <h3>Discover Your Creative Fit</h3>
+        <p>Through a personalised assessment, we identify which creative fields suit your interests, strengths, and personality — no guesswork.</p>
+      </div>
+      <div class="solution-card fade-up fade-up-delay-1">
+        <div class="solution-emoji">🗺️</div>
+        <h3>Get a Clear Career Map</h3>
+        <p>We map out exactly which subjects, colleges, courses, and skills will get your child from Class 11 to their dream career.</p>
+      </div>
+      <div class="solution-card fade-up fade-up-delay-2">
+        <div class="solution-emoji">💸</div>
+        <h3>Understand the Money</h3>
+        <p>We show salary trajectories, growth timelines, and company names — so parents can see exactly what the future looks like financially.</p>
+      </div>
+      <div class="solution-card fade-up">
+        <div class="solution-emoji">🏫</div>
+        <h3>College & Course Guidance</h3>
+        <p>Top design colleges, communication programs, online certifications — we shortlist the right institutions based on your goals and budget.</p>
+      </div>
+      <div class="solution-card fade-up fade-up-delay-1">
+        <div class="solution-emoji">💼</div>
+        <h3>Portfolio & Skills Roadmap</h3>
+        <p>Know exactly what to build in school itself — projects, mini-portfolios, skills to learn — so you're ahead before college even starts.</p>
+      </div>
+      <div class="solution-card fade-up fade-up-delay-2">
+        <div class="solution-emoji">🤝</div>
+        <h3>Parent Clarity Session</h3>
+        <p>A dedicated session for parents to ask every question — salary, stability, job market, backup plans — answered honestly and completely.</p>
+      </div>
+    </div>
+
+    <div class="solution-highlight fade-up">
+      <div>
+        <h3>One free session. Zero pressure.</h3>
+        <p>Your first consultation costs nothing. We earn your trust before asking for anything else.</p>
+      </div>
+      <a href="#final-cta" class="btn btn-ghost btn-lg" style="flex-shrink:0;">
+        Book Free Consultation
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     HOW IT WORKS
+============================ -->
+<section class="how section" id="how">
+  <div class="container">
+
+    <div class="how-header">
+      <div class="badge badge-gold fade-up">Step by Step</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">How It Works</h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">Simple. Personal. Effective. From first call to final roadmap — here's exactly what the process looks like.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Apply for Your Free Consultation</h3>
+          <p>Fill a short form (takes 3 minutes) telling us about the student — Class, interests, what they enjoy, what they're confused about. Both student and parent fill it together.</p>
+          <span class="step-duration">⏱ 3 minutes</span>
+        </div>
+      </div>
+      <div class="step fade-up fade-up-delay-1">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Free Discovery Session (45 min)</h3>
+          <p>We meet on video call — with the student AND parent. We listen, ask questions, and understand the full picture before offering any direction. No scripts. No selling. Just real conversation.</p>
+          <span class="step-duration">⏱ 45-minute video call</span>
+        </div>
+      </div>
+      <div class="step fade-up fade-up-delay-2">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Creative Profile Assessment</h3>
+          <p>We run a personalised assessment to understand the student's strengths, creative preferences, working style, and which career environments they'd thrive in. Fun, simple, and eye-opening.</p>
+          <span class="step-duration">⏱ 2–3 days to process</span>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Your Personalised Career Roadmap</h3>
+          <p>We create a detailed, written roadmap — top 3 career paths, required skills, colleges to target, courses to take, and what to do in the next 6 months. Shared with both student and parent.</p>
+          <span class="step-duration">⏱ Delivered in 7 days</span>
+        </div>
+      </div>
+      <div class="step fade-up fade-up-delay-1">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <h3>Roadmap Review + Q&A Call</h3>
+          <p>We walk you through the roadmap together. Parents can ask every financial and practical question. Students can ask about day-to-day life in that career. We answer everything — honestly.</p>
+          <span class="step-duration">⏱ 60-minute deep-dive call</span>
+        </div>
+      </div>
+      <div class="step fade-up fade-up-delay-2">
+        <div class="step-num">06</div>
+        <div class="step-content">
+          <h3>Ongoing Support (Optional)</h3>
+          <p>Monthly check-ins, portfolio reviews, college application guidance, and community access — for students who want continued support throughout school and college admissions.</p>
+          <span class="step-duration">⏱ Flexible monthly plans</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-cta-box fade-up">
+      <div class="badge badge-saffron" style="margin-bottom:16px;">Start Today</div>
+      <h3>Step 1 is completely free.<br>No commitment required.</h3>
+      <p>Hundreds of students and parents have started exactly where you are right now. The first conversation changed everything.</p>
+      <a href="#final-cta" class="btn btn-primary btn-lg">
+        Apply for Free Consultation
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     OUTCOMES / BENEFITS
+============================ -->
+<section class="outcomes section" id="outcomes">
+  <div class="container">
+
+    <div class="outcomes-header">
+      <div class="badge badge-teal fade-up">What You'll Walk Away With</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">Clarity. Confidence.<br><span style="color:var(--teal)">A Real Plan.</span></h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">After working with us, both students and parents leave with something they didn't have before — a clear picture of the future, and the steps to get there.</p>
+    </div>
+
+    <div class="outcomes-grid">
+      <div class="outcome-card fade-up">
+        <div class="outcome-icon" style="background:var(--saffron-pale);">🎯</div>
+        <div>
+          <h4>Clarity on the Right Career</h4>
+          <p>No more "I don't know what to do." Know exactly which 2–3 creative paths fit you — based on data, not just gut feeling.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up fade-up-delay-1">
+        <div class="outcome-icon" style="background:var(--teal-light);">📋</div>
+        <div>
+          <h4>A Written Career Roadmap</h4>
+          <p>A personalised document you keep — listing every step from today to your first job. Colleges, courses, skills, timelines.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up fade-up-delay-2">
+        <div class="outcome-icon" style="background:var(--gold-light);">💰</div>
+        <div>
+          <h4>Salary & Growth Reality Check</h4>
+          <p>Real numbers, real companies, real timelines. Parents will see the financial picture clearly — including backup scenarios.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <div class="outcome-icon" style="background:var(--violet-light);">🏫</div>
+        <div>
+          <h4>Shortlist of Colleges & Programs</h4>
+          <p>Top 10 colleges to target, with fee structures, cutoffs, and alternative paths like international study or online degrees.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up fade-up-delay-1">
+        <div class="outcome-icon" style="background:#E8F8F5;">🛠️</div>
+        <div>
+          <h4>Skills & Portfolio Plan</h4>
+          <p>Know exactly what tools to learn, what mini-projects to build, and how to start your portfolio while still in school.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up fade-up-delay-2">
+        <div class="outcome-icon" style="background:#FFF0EB;">🤝</div>
+        <div>
+          <h4>Student–Parent Alignment</h4>
+          <p>The most underrated outcome — both student and parent leave the sessions on the same page, supporting each other.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="outcomes-quote fade-up">
+      <p>"Your child's creativity isn't a distraction from their future — it <em>is</em> their future. We're here to help everyone see that."</p>
+      <div class="cite">— The CreativeCompass Team</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     TRUST SECTION
+============================ -->
+<section class="trust section" id="trust">
+  <div class="container">
+
+    <div class="trust-header">
+      <div class="badge badge-violet fade-up">Why Trust Us</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">We're Not Just Advisors.<br><span style="color:var(--violet)">We've Been There.</span></h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">Our team includes working professionals from design, marketing, content, and branding — who've actually built these careers. We know what's real and what's just hype.</p>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card fade-up">
+        <div class="trust-icon">🎓</div>
+        <h4>Industry-First Approach</h4>
+        <p>Our guidance is built on what's actually happening in the job market today — not textbook career theory from 10 years ago.</p>
+      </div>
+      <div class="trust-card fade-up fade-up-delay-1">
+        <div class="trust-icon">🤲</div>
+        <h4>No Pushy Selling</h4>
+        <p>Your first session is free. We don't pressure anyone. If we're not the right fit, we'll say so — and point you somewhere better.</p>
+      </div>
+      <div class="trust-card fade-up fade-up-delay-2">
+        <div class="trust-icon">👨‍👩‍👧</div>
+        <h4>Family-First Process</h4>
+        <p>We always include parents. We understand Indian families — and we know that the best outcomes happen when everyone is on board.</p>
+      </div>
+      <div class="trust-card fade-up">
+        <div class="trust-icon">🔏</div>
+        <h4>Completely Confidential</h4>
+        <p>Everything shared in sessions stays between us. No sharing, no selling data. A safe space for honest conversations.</p>
+      </div>
+      <div class="trust-card fade-up fade-up-delay-1">
+        <div class="trust-icon">📊</div>
+        <h4>Data-Backed Guidance</h4>
+        <p>Salary data, hiring trends, and college insights come from verified industry sources — not gut feeling or anecdotes.</p>
+      </div>
+      <div class="trust-card fade-up fade-up-delay-2">
+        <div class="trust-icon">⭐</div>
+        <h4>Student-Proven Results</h4>
+        <p>Students we've guided are now studying at NID, Srishti, MICA, Pearl Academy, and building portfolios that get noticed.</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="trust-testimonials">
+      <div class="testimonial fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"I came in completely confused between medicine and art. After two sessions, I knew I wanted UI/UX. My parents were skeptical at first, but the salary data shown to them actually convinced them. Now I'm preparing for NID entrance."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg,var(--violet),var(--teal));">A</div>
+          <div>
+            <div class="testimonial-name">Aditi Sharma</div>
+            <div class="testimonial-title">Class 12 Student, Delhi</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-up fade-up-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"As a parent, I was worried about 'creative careers.' The team spent an entire session just with me — answering every financial question I had. I left feeling more confident than I expected. My son is now studying design and thriving."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg,var(--saffron),var(--gold));">R</div>
+          <div>
+            <div class="testimonial-name">Rajesh Menon</div>
+            <div class="testimonial-title">Parent, Bengaluru</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-up fade-up-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"They gave me a 6-month plan of what to learn and build while still in Class 11. I followed it, built my first portfolio, and got shortlisted in 3 college programs. This is exactly what every creative student needs."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg,var(--teal),#2ECC71);">K</div>
+          <div>
+            <div class="testimonial-name">Karthik Nair</div>
+            <div class="testimonial-title">Class 12 Student, Chennai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo trust strip -->
+    <div class="trust-logos fade-up">
+      <p>Where our students are building careers</p>
+      <div class="logos-row">
+        <div class="logo-pill">Swiggy</div>
+        <div class="logo-pill">Zomato</div>
+        <div class="logo-pill">CRED</div>
+        <div class="logo-pill">Razorpay</div>
+        <div class="logo-pill">Myntra</div>
+        <div class="logo-pill">Ogilvy</div>
+        <div class="logo-pill">Dentsu</div>
+        <div class="logo-pill">Byju's</div>
+        <div class="logo-pill">MakeMyTrip</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     FAQ SECTION
+============================ -->
+<section class="faq section" id="faq">
+  <div class="container">
+
+    <div class="faq-header">
+      <div class="badge badge-gold fade-up">Questions? We Have Answers.</div>
+      <h2 class="mt-4 fade-up fade-up-delay-1">Frequently Asked Questions</h2>
+      <p class="lead mt-4 fade-up fade-up-delay-2">The most common questions from students and parents — answered honestly.</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is the first consultation really free?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes, completely. The discovery session is 45 minutes, at no charge, with zero obligation. We want you to feel comfortable before committing to anything. If you find value in just that one session, that's a win for us too.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up fade-up-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          My child is in Class 8. Is it too early?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Not at all — actually it's perfect timing. Class 8–9 students have the most runway to explore, experiment, and build skills gradually. Starting early means less panic later when choosing streams in Class 11.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if my child isn't sure what they like yet?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">That's exactly why we have the Creative Profile Assessment. It's designed for students who don't know yet. We use your interests, work style, and personality to surface the right creative paths — often revealing options students hadn't even considered.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up fade-up-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do creative careers really pay well in India?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — and the numbers are surprising most people. Senior UX designers at companies like Razorpay or Swiggy earn ₹20–35L. Brand managers at FMCG companies earn ₹15–25L. These are structured, salaried positions with benefits — not just freelancing. We share real data in our sessions.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Which college stream should they take in Class 11?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">It depends on the specific career path. Some creative careers work well from Commerce + Computer Science stream. Others need Humanities. We give you specific, personalised guidance on stream selection as part of the roadmap.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up fade-up-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this only for students in metro cities?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Not at all. All our sessions are online — we work with students from Tier-2 and Tier-3 cities across India. Creative careers are increasingly remote-friendly, and we account for location-specific factors in our college and career guidance.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Should both parents and students attend the session?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We strongly recommend it. The best outcomes happen when students and parents are aligned. We've designed the sessions to create open, comfortable conversations for everyone — not just the student.</div>
+        </div>
+      </div>
+      <div class="faq-item fade-up fade-up-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if we decide we don't want to continue after the free session?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">That's completely fine. No hard selling, no follow-up pressure. We'll even share some useful resources with you before you go. We'd rather you leave with value than feel obligated to continue.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     FINAL CTA SECTION
+============================ -->
+<section class="final-cta" id="final-cta">
+  <div class="container" style="position:relative;z-index:1;">
+
+    <div class="badge" style="background:rgba(255,107,53,0.2);color:#FF8C5A;margin-bottom:28px;display:inline-flex;">🎯 Limited Spots Available</div>
+
+    <h2 class="fade-up fade-up-delay-1">
+      The Right Career Starts with<br>
+      <span class="serif" style="font-style:italic;font-weight:300;">One Honest Conversation.</span>
+    </h2>
+
+    <p class="mt-6 fade-up fade-up-delay-2">
+      Stop googling. Stop guessing. Stop arguing over streams and colleges. Let's sit down together — student and parent — and figure out the path forward. One free session. No pressure. Just clarity.
+    </p>
+
+    <div class="cta-features fade-up">
+      <div class="cta-feature">
+        <span class="check">✓</span> Completely Free First Session
+      </div>
+      <div class="cta-feature">
+        <span class="check">✓</span> Student + Parent Together
+      </div>
+      <div class="cta-feature">
+        <span class="check">✓</span> No Commitment Required
+      </div>
+      <div class="cta-feature">
+        <span class="check">✓</span> 100% Online, Pan-India
+      </div>
+    </div>
+
+    <div class="final-cta-btns fade-up">
+      <a href="#" class="btn btn-primary btn-lg">
+        Apply for Free Consultation
+        <span class="arrow">→</span>
+      </a>
+      <a href="https://wa.me/" class="btn btn-ghost btn-lg">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+
+    <p class="final-note fade-up">
+      We take on limited students each month to ensure quality. Reserve your spot today.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-logo">Creative<span style="color:var(--saffron)">Compass</span></div>
+      <div class="footer-links">
+        <a href="#problem">Why This</a>
+        <a href="#solution">What We Do</a>
+        <a href="#how">How It Works</a>
+        <a href="#trust">Trust</a>
+        <a href="#faq">FAQs</a>
+        <a href="#final-cta">Free Consultation</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CreativeCompass. All rights reserved.</p>
+      <p>Made with <span class="footer-heart">♥</span> for creative students across India</p>
+    </div>
+  </div>
+</footer>
+
+<!-- External JS -->
+<script src="main.js"></script>
+
+</body>
+</html>

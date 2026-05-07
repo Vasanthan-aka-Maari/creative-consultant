@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Career ROI Test — ODDONESOUT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ============================
+   QUIZ PAGE SPECIFIC STYLES
+============================ */
+
+/* Landing / Hero */
+.quiz-landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.quiz-landing::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,168,0,0.07) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.quiz-landing-inner {
+  text-align: center;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+.quiz-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255,168,0,0.08);
+  border: 1px solid rgba(255,168,0,0.25);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 28px;
+}
+.quiz-eyebrow-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.quiz-landing-title {
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+.quiz-landing-title .highlight {
+  color: var(--yellow);
+}
+.quiz-landing-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  letter-spacing: -0.02em;
+}
+.quiz-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.quiz-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.quiz-meta-item span:first-child {
+  font-size: 0.9rem;
+}
+
+/* Quiz Shell */
+#quiz-shell {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 24px 60px;
+}
+
+/* Progress */
+.quiz-progress-wrap {
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+.quiz-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.quiz-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+.quiz-counter {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.quiz-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--yellow);
+  border-radius: 100px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Question card */
+.quiz-card {
+  max-width: 640px;
+  margin: 0 auto;
+  animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.quiz-q-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.quiz-question-text {
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+}
+
+/* Options */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 36px;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+.quiz-option:hover {
+  border-color: rgba(255,168,0,0.35);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+.quiz-option.selected {
+  border-color: var(--yellow);
+  background: rgba(255,168,0,0.07);
+  color: var(--text-primary);
+}
+.quiz-option.selected .opt-indicator {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+.quiz-option.selected .opt-indicator::after {
+  opacity: 1;
+}
+.opt-indicator {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.opt-indicator::after {
+  content: '';
+  width: 8px; height: 8px;
+  background: #0C0C0C;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+/* Multi-select checkbox variant */
+.quiz-option.multi .opt-indicator {
+  border-radius: 5px;
+}
+.quiz-option.multi.selected .opt-indicator::after {
+  content: '✓';
+  font-size: 0.6rem;
+  font-weight: 900;
+  background: none;
+  color: #0C0C0C;
+  width: auto; height: auto;
+}
+
+/* Navigation */
+.quiz-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.quiz-btn-back {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  padding: 13px 24px;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: -0.02em;
+}
+.quiz-btn-back:hover {
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text-primary);
+}
+.quiz-btn-next {
+  background: var(--yellow);
+  color: #0C0C0C;
+  padding: 13px 32px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.quiz-btn-next.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.quiz-btn-next.active:hover {
+  background: #FFE033;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(255,168,0,0.3);
+}
+
+/* ============================
+   GATE SCREEN (name + phone)
+============================ */
+#gate-screen {
+  display: none;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+}
+.gate-card {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.gate-icon {
+  width: 64px; height: 64px;
+  background: rgba(255,168,0,0.1);
+  border: 1px solid rgba(255,168,0,0.25);
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 24px;
+}
+.gate-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.gate-subtitle {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.gate-input {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  font-size: 0.93rem;
+  font-family: var(--font-system);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  transition: border-color 0.18s;
+  outline: none;
+  width: 100%;
+}
+.gate-input:focus {
+  border-color: rgba(255,168,0,0.5);
+}
+.gate-input::placeholder {
+  color: var(--text-muted);
+}
+.gate-submit {
+  background: var(--yellow);
+  color: #0C0C0C;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s;
+  letter-spacing: -0.02em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.gate-submit:hover {
+  background: #FFE033;
+  box-shadow: 0 6px 24px rgba(255,168,0,0.3);
+}
+.gate-privacy {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+/* ============================
+   LOADING SCREEN
+============================ */
+#loading-screen {
+  display: none;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  padding: 24px;
+}
+.loading-spinner {
+  width: 56px; height: 56px;
+  border: 3px solid rgba(255,168,0,0.15);
+  border-top-color: var(--yellow);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 8px;
+}
+.loading-step {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+.loading-step.active { color: var(--yellow); }
+.loading-step.done { color: #4ADE80; }
+
+/* ============================
+   RESULTS PAGE
+============================ */
+#results-screen {
+  display: none;
+  min-height: 100vh;
+  padding: 80px 24px 80px;
+}
+.results-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Score circle */
+.results-score-section {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.results-analysis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.25);
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4ADE80;
+  margin-bottom: 28px;
+}
+.results-score-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 36px;
+}
+.score-circle-wrap {
+  position: relative;
+  width: 200px; height: 200px;
+  margin: 0 auto 28px;
+}
+.score-svg {
+  width: 200px; height: 200px;
+  transform: rotate(-90deg);
+}
+.score-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+.score-fill {
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.score-number {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.score-num-big {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.score-num-small {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.results-score-tagline {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Career match cards */
+.results-matches-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.results-matches-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 36px;
+  letter-spacing: -0.01em;
+}
+
+/* Best match card (large) */
+.career-best {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-yellow);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.career-best::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 0% 0%, rgba(255,168,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.best-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--yellow);
+  color: #0C0C0C;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.career-best-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.career-left {}
+.career-category-tag {
+  display: inline-flex;
+  padding: 3px 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.67rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.career-title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.career-growth-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.career-growth-pct {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #4ADE80;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.career-difficulty {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.difficulty-medium { background: rgba(251,191,36,0.1); color: #FBBF24; }
+.difficulty-high { background: rgba(239,68,68,0.1); color: #EF4444; }
+.difficulty-low { background: rgba(74,222,128,0.1); color: #4ADE80; }
+
+.career-description {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+.career-salary-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.salary-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.salary-chip .s-icon { font-size: 0.9rem; }
+.career-right {}
+.quick-stats-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+.quick-stats-head .qs-icon { color: var(--yellow); }
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.83rem;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-label { color: var(--text-muted); }
+.stat-val { font-weight: 700; color: var(--text-primary); }
+.stat-val.green { color: #4ADE80; }
+.stat-val.yellow { color: var(--yellow); }
+
+/* Secondary cards grid */
+.career-secondary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.career-card-sm {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.career-card-sm:hover {
+  border-color: var(--border-yellow);
+  transform: translateY(-2px);
+}
+
+/* Insight section */
+.results-insight {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 48px;
+}
+.results-insight-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.results-insight p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+/* CTA bottom */
+.results-cta-box {
+  background: var(--yellow);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.results-cta-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, rgba(255,255,255,0.2) 0%, transparent 60%);
+}
+.results-cta-box h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #0C0C0C;
+  margin-bottom: 10px;
+  position: relative;
+}
+.results-cta-box p {
+  font-size: 0.9rem;
+  color: rgba(12,12,12,0.65);
+  margin-bottom: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.results-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Error state */
+.error-msg {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  color: #EF4444;
+  margin-bottom: 16px;
+  display: none;
+}
+
+/* Nav on quiz page */
+.quiz-nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 28px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(12,12,12,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.quiz-nav-logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+.quiz-nav-logo span:nth-child(2) { color: var(--yellow); }
+
+@media (max-width: 640px) {
+  .career-best-grid { grid-template-columns: 1fr; gap: 24px; }
+  .career-secondary-grid { grid-template-columns: 1fr; }
+  .results-cta-box { padding: 28px 20px; }
+  .quiz-landing-title { font-size: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav bar -->
+<nav class="quiz-nav-bar">
+  <a href="index.html" class="quiz-nav-logo">
+    <span>ODD</span><span>ONES</span><span>OUT</span>
+  </a>
+  <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:-0.01em;">Career ROI Test</div>
+</nav>
+
+<!-- ============================
+     LANDING SCREEN
+============================ -->
+<div id="landing-screen">
+  <div class="quiz-landing">
+    <div class="quiz-landing-inner">
+      <div class="quiz-eyebrow">
+        <span class="quiz-eyebrow-dot"></span>
+        Free Career Assessment · 2026 Edition
+      </div>
+      <h1 class="quiz-landing-title">
+        92 Million Jobs Will<br>
+        Disappear by 2030.<br>
+        <span class="highlight">Is Yours One of Them?</span>
+      </h1>
+      <p class="quiz-landing-subtitle">
+        Confused about your career path? This 2-minute test reveals the highest ROI creative careers based on your unique strengths and future market demand.
+      </p>
+      <div class="quiz-meta-row">
+        <div class="quiz-meta-item"><span>⏱</span> 2 Minutes</div>
+        <div class="quiz-meta-item"><span>📋</span> 20 Questions</div>
+        <div class="quiz-meta-item"><span>🤖</span> AI-Powered Analysis</div>
+        <div class="quiz-meta-item"><span>🆓</span> 100% Free</div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startQuiz()" style="font-size:1rem;padding:18px 40px;">
+        Find My Career Match
+        <span class="arrow">→</span>
+      </button>
+      <p style="margin-top:16px;font-size:0.73rem;color:var(--text-muted);">No sign-up required to start. Results in 60 seconds.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     QUIZ SHELL
+============================ -->
+<div id="quiz-shell">
+  <!-- Progress -->
+  <div class="quiz-progress-wrap">
+    <div class="quiz-progress-top">
+      <div class="quiz-section-label" id="section-label">Expression & Style</div>
+      <div class="quiz-counter" id="q-counter">1 / 20</div>
+    </div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="progress-fill" style="width:5%"></div>
+    </div>
+  </div>
+
+  <!-- Question card (rendered by JS) -->
+  <div id="quiz-card-wrap"></div>
+</div>
+
+<!-- ============================
+     GATE SCREEN
+============================ -->
+<div id="gate-screen" style="display:none;min-height:100vh;display:none;align-items:center;justify-content:center;padding:80px 24px;">
+  <div class="gate-card">
+    <div class="gate-icon">🔓</div>
+    <h2 class="gate-title">Your Results Are Ready</h2>
+    <p class="gate-subtitle">Enter your name and phone number to unlock your personalised career analysis. We'll also reach out if there's a good fit for our consultation.</p>
+    <div class="error-msg" id="gate-error">Please fill in all fields correctly.</div>
+    <div class="gate-form">
+      <input type="text" class="gate-input" id="user-name" placeholder="Your full name" autocomplete="name" />
+      <input type="tel" class="gate-input" id="user-phone" placeholder="Phone number (WhatsApp preferred)" autocomplete="tel" />
+      <button class="gate-submit" onclick="submitGate()">
+        <span>Unlock My Results</span>
+        <span>→</span>
+      </button>
+    </div>
+    <p class="gate-privacy">🔒 We respect your privacy. No spam, ever. Used only for consultation outreach.</p>
+  </div>
+</div>
+
+<!-- ============================
+     LOADING SCREEN
+============================ -->
+<div id="loading-screen" style="display:none;flex-direction:column;min-height:100vh;align-items:center;justify-content:center;gap:24px;text-align:center;padding:24px;">
+  <div class="loading-spinner"></div>
+  <div>
+    <p style="font-size:1.1rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:20px;color:var(--text-primary);">Analysing Your Profile…</p>
+    <div class="loading-steps">
+      <div class="loading-step" id="ls-1">📊 Processing your answers</div>
+      <div class="loading-step" id="ls-2">🤖 Running AI career analysis</div>
+      <div class="loading-step" id="ls-3">📈 Checking 2030 market demand</div>
+      <div class="loading-step" id="ls-4">🎯 Matching your persona to careers</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     RESULTS SCREEN
+============================ -->
+<div id="results-screen" style="display:none;min-height:100vh;padding:80px 24px 80px;">
+  <div class="results-inner">
+
+    <!-- Score -->
+    <div class="results-score-section">
+      <div class="results-analysis-badge">✦ Analysis Complete</div>
+      <h1 class="results-score-title">Your Career ROI Score</h1>
+      <div class="score-circle-wrap">
+        <svg class="score-svg" viewBox="0 0 200 200">
+          <circle class="score-bg" cx="100" cy="100" r="80"/>
+          <circle class="score-fill" id="score-circle" cx="100" cy="100" r="80"/>
+        </svg>
+        <div class="score-number">
+          <div class="score-num-big" id="score-display">0</div>
+          <div class="score-num-small">/100</div>
+        </div>
+      </div>
+      <p class="results-score-tagline" id="score-tagline">Analysing your profile…</p>
+    </div>
+
+    <!-- Career Matches -->
+    <div>
+      <h2 class="results-matches-title">Your Top Career Matches</h2>
+      <p class="results-matches-sub">Based on your strengths and 2030 market demand</p>
+
+      <!-- Best match (rendered by JS) -->
+      <div id="best-match-wrap"></div>
+
+      <!-- Secondary matches -->
+      <div class="career-secondary-grid" id="secondary-matches-wrap"></div>
+
+      <!-- AI Insight -->
+      <div class="results-insight" id="ai-insight-wrap" style="display:none;">
+        <div class="results-insight-title">🧠 Your Personalised Career Insight</div>
+        <p id="ai-insight-text"></p>
+      </div>
+
+      <!-- CTA -->
+      <div class="results-cta-box">
+        <h3>Want a Human to Walk You Through This?</h3>
+        <p>Book a free 45-min consultation and get a personalised roadmap — courses, colleges, timeline.</p>
+        <div class="results-cta-btns">
+          <!-- <a href="index.html#final-cta" class="btn btn-primary btn-lg" style="background:#0C0C0C;color:var(--yellow);">
+            Book Free Consultation →
+          </a> -->
+          <a href="https://wa.me/9272411142?text=Hi%20I%20just%20completed%20the%20Career%20ROI%20test%20and%20want%20to%20discuss%20my%20results." class="btn-ghost-dark btn-lg">
+            Free Consultation: Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="quiz.js"></script>
+
+</body>
+</html>
